@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: kimi-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: LARK_APP_ID
+        sync: false
+      - key: LARK_APP_SECRET
+        sync: false
+      - key: LARK_VERIFY_TOKEN
+        sync: false
+      - key: KIMI_API_KEY
+        sync: false
